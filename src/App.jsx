@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { getWhatsAppUrl, salonDetails } from './config.js';
 
+const salonImageUrl = `${import.meta.env.BASE_URL}images/luxury-salon.jpg`;
+
 const services = [
   {
     number: '01',
@@ -179,7 +181,12 @@ function Reveal({ children, className = '', delay = 0 }) {
 function Hero() {
   return (
     <section className="hero" id="home" aria-labelledby="hero-title">
-      <div className="hero__image" role="img" aria-label="AURELLE-inspired marble salon with arched mirrors and brass details" />
+      <div
+        className="hero__image"
+        role="img"
+        aria-label="AURELLE-inspired marble salon with arched mirrors and brass details"
+        style={{ backgroundImage: `url("${salonImageUrl}")` }}
+      />
       <div className="hero__wash" />
       <div className="hero__content">
         <p className="eyebrow hero__eyebrow">THE ART OF BEAUTY &amp; SELF-CARE</p>
@@ -260,7 +267,7 @@ function Experience() {
     <section className="experience" id="experience" aria-labelledby="experience-title">
       <Reveal className="experience__visual">
         <img
-          src="/images/luxury-salon.jpg"
+          src={salonImageUrl}
           alt="Warm marble salon interior with arched mirrors, brass shelving, and black styling chairs"
           loading="lazy"
         />
